@@ -1,4 +1,4 @@
-import { POSSIBLE_BATCH_SIZES, Product } from '@/models/Product'
+import { POSSIBLE_BATCH_SIZES, Product } from '@/models/product'
 
 import { safeParseInt } from '@/helpers/parse'
 

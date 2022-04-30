@@ -1,4 +1,4 @@
-import { Recipe } from '@/models/Recipe'
+import { Recipe } from '@/models/recipe'
 
 export const POSSIBLE_BATCH_SIZES = [1, 10, 100] 
 

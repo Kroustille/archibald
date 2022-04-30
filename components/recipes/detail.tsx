@@ -1,5 +1,5 @@
 import { IngredientDetail } from '@/components/ingredients/detail'
-import { Recipe } from '@/models/Recipe'
+import { Recipe } from '@/models/recipe'
 
 interface Props {
   recipe: Recipe

@@ -1,4 +1,4 @@
-import { Ingredient } from '@/models/Ingredient'
+import { Ingredient } from '@/models/ingredient'
 import { ProductDetail } from '@/components/products/detail'
 import { safeParseInt } from '@/helpers/parse'
 

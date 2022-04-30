@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import { Ingredient } from '@/models/Ingredient'
+import { Ingredient } from '@/models/ingredient'
 import type { NextPage } from 'next'
-import { Product } from '@/models/Product'
-import { Recipe } from '@/models/Recipe'
+import { Product } from '@/models/product'
+import { Recipe } from '@/models/recipe'
 import { RecipeDetail } from '@/components/recipes/detail'
+import { Results } from '@/components/results'
 import { useState } from 'react'
 
 const Home: NextPage = () => {
@@ -23,7 +24,7 @@ const Home: NextPage = () => {
     id: '2',
     label: 'Eau',
     batchSize: 10,
-    pricePerBatch: 150
+    pricePerBatch: 200
   }
 
   const potion_de_rappel_eau: Ingredient = {
@@ -64,6 +65,7 @@ const Home: NextPage = () => {
             />
           )}
         </section>
+        <Results recipe={recipes[0]}/>
       </main>
     </div>
   )
