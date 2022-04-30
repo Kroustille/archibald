@@ -9,7 +9,9 @@ import { useState } from 'react'
 const Home: NextPage = () => {
   const sauge: Product = {
     id: '1',
-    label: 'Sauge'
+    label: 'Sauge',
+    batchSize: 100,
+    pricePerBatch: 3000
   }
 
   const potion_de_rappel_sauge: Ingredient = {
@@ -19,7 +21,9 @@ const Home: NextPage = () => {
 
   const eau: Product = {
     id: '2',
-    label: 'Eau'
+    label: 'Eau',
+    batchSize: 10,
+    pricePerBatch: 150
   }
 
   const potion_de_rappel_eau: Ingredient = {

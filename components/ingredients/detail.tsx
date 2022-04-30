@@ -1,4 +1,6 @@
 import { Ingredient } from '@/models/Ingredient'
+import { ProductDetail } from '@/components/products/detail'
+import { safeParseInt } from '@/helpers/parse'
 
 interface Props {
   ingredient: Ingredient
@@ -9,7 +11,12 @@ export const IngredientDetail = ({ ingredient, onChange }: Props) => {
   return <article>
     <input type="number" value={ingredient.count} onChange={event => onChange({
       ...ingredient,
-      count: Number.parseInt(event.target.value)
-    })}/> {ingredient.product.label}
+      count: safeParseInt(event.target.value)
+    })}/> 
+    <ProductDetail product={ingredient.product} onChange={product => onChange({
+      ...ingredient,
+      product
+    })}
+    />
   </article>
 }
