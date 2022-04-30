@@ -9,7 +9,7 @@ interface Props {
 
 export const ItemDetail = ({ item, onChange }: Props) => {
   const handleIngredientChange = (new_ingredient: Ingredient, index: number) => {
-    const new_ingredients = [...(item?.ingredients ?? [])]
+    const new_ingredients = [...item.ingredients]
     new_ingredients[index] = new_ingredient
     onChange({
       ...item,
@@ -17,11 +17,10 @@ export const ItemDetail = ({ item, onChange }: Props) => {
     })
   }
 
-  
   return  <article>
-    <h1>{item.label}</h1>
+    <h2>{item.label}</h2>
     <form>
-      {(item.ingredients ?? []).map((ingredient, index) => <IngredientDetail 
+      {item.ingredients.map((ingredient, index) => <IngredientDetail 
         key={ingredient.item.id} 
         ingredient={ingredient}
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}

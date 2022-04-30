@@ -7,5 +7,5 @@ export interface Item {
   label: string
   pricePerBatch: number
   batchSize: number
-  ingredients?: Ingredient[]
+  ingredients: Ingredient[]
 }
