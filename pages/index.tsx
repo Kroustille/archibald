@@ -1,13 +1,13 @@
 import Head from 'next/head'
+import { ItemDetail } from '@/components/item/detail'
 import type { NextPage } from 'next'
-import { RecipeDetail } from '@/components/recipes/detail'
 import { Results } from '@/components/results'
 import { potion_de_rappel } from '@/data/recipes'
 import styles from './styles.module.css'
 import { useState } from 'react'
 
 const Home: NextPage = () => {
-  const [recipes, setRecipes] = useState([potion_de_rappel])
+  const [item, setItem] = useState(potion_de_rappel)
 
   return (
     <div>
@@ -17,22 +17,24 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.grid}>
+        <header>
+          <ItemDetail 
+            item={item} 
+            onChange={setItem}
+          />
+        </header>
         <section>
-          {recipes.map((recipe, index) => 
-            <RecipeDetail 
-              key={recipe.id} 
-              recipe={recipe} 
-              onChange={new_recipe => {
-                const new_recipes = [...recipes]
-                new_recipes[index] = new_recipe
-                setRecipes(new_recipes)
-              }}
-            />
-          )}
+          <div>
+            <article></article>
+            <article></article>
+          </div>
+          <div>
+            <article></article>
+            <article></article>
+          </div>
+
         </section>
-        <section>
-        </section>
-        <Results recipe={recipes[0]}/>
+        <Results item={item}/>
       </main>
     </div>
   )

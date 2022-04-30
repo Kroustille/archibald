@@ -1,6 +1,6 @@
-import { Product } from '@/models/product'
+import { Item } from '@/models/item'
 
 export interface Ingredient {
-  product: Product
+  item: Item
   count: number
 }

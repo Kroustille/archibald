@@ -1,27 +1,28 @@
 import { Ingredient } from '@/models/ingredient'
 import { IngredientDetail } from '@/components/ingredients/detail'
-import { Recipe } from '@/models/recipe'
+import { Item } from '@/models/item'
 
 interface Props {
-  recipe: Recipe
-  onChange(recipe: Recipe): void
+  item: Item
+  onChange: (item: Item) => void
 }
 
-export const RecipeDetail = ({ recipe, onChange }: Props) => {
+export const ItemDetail = ({ item, onChange }: Props) => {
   const handleIngredientChange = (new_ingredient: Ingredient, index: number) => {
-    const new_ingredients = [...recipe.ingredients]
+    const new_ingredients = [...(item?.ingredients ?? [])]
     new_ingredients[index] = new_ingredient
     onChange({
-      ...recipe,
+      ...item,
       ingredients: new_ingredients
     })
   }
+
   
-  return <article>
-    <h1>{recipe.label}</h1>
+  return  <article>
+    <h1>{item.label}</h1>
     <form>
-      {recipe.ingredients.map((ingredient, index) => <IngredientDetail 
-        key={ingredient.product.id} 
+      {(item.ingredients ?? []).map((ingredient, index) => <IngredientDetail 
+        key={ingredient.item.id} 
         ingredient={ingredient}
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}
       />)}

@@ -1,6 +1,6 @@
 import { Ingredient } from '@/models/ingredient'
 import { NumericInput } from '@/ui/NumericInput'
-import { POSSIBLE_BATCH_SIZES } from '@/models/product'
+import { POSSIBLE_BATCH_SIZES } from '@/models/item'
 import { Select } from '@/ui/Select'
 import styles from './styles.module.css'
 
@@ -12,23 +12,23 @@ interface Props {
 
 export const IngredientDetail = ({ className, ingredient, onChange }: Props) => {
   return <fieldset className={className}>
-    <legend>{ingredient.count} X&nbsp;{ingredient.product.label}</legend>
+    <legend>{ingredient.count} X&nbsp;{ingredient.item.label}</legend>
     
     <span className={styles.form}>
-      <Select value={ingredient.product.batchSize} options={POSSIBLE_BATCH_SIZES} onChange={batchSize => onChange({ 
+      <Select value={ingredient.item.batchSize} options={POSSIBLE_BATCH_SIZES} onChange={batchSize => onChange({ 
         ...ingredient,
-        product: {
-          ...ingredient.product,
+        item: {
+          ...ingredient.item,
           batchSize: Number.parseInt(batchSize)
         }
       })}/>
     
       <NumericInput
-        value={ingredient.product.pricePerBatch} 
+        value={ingredient.item.pricePerBatch} 
         onChange={pricePerBatch => onChange({
           ...ingredient,
-          product: {
-            ...ingredient.product,
+          item: {
+            ...ingredient.item,
             pricePerBatch
           }
         })}/>

@@ -1,8 +1,8 @@
 import { Ingredient } from '@/models/ingredient'
-import { Product } from '@/models/product'
+import { Item } from '@/models/item'
 import { Recipe } from '@/models/recipe'
 
-const sauge: Product = {
+const sauge: Item = {
   id: '1',
   label: 'Sauge',
   batchSize: 100,
@@ -10,11 +10,11 @@ const sauge: Product = {
 }
 
 const potion_de_rappel_sauge: Ingredient = {
-  product: sauge,
+  item: sauge,
   count: 4
 }
 
-const eau: Product = {
+const eau: Item = {
   id: '2',
   label: 'Eau',
   batchSize: 10,
@@ -22,19 +22,29 @@ const eau: Product = {
 }
 
 const potion_de_rappel_eau: Ingredient = {
-  product: eau,
+  item: eau,
   count: 1
 }
 
-const potion_de_rappel: Recipe = {
+const potion_de_rappel: Item = {
   id: '1',
   label: 'Potion de rappel',
+  pricePerBatch: 0,
+  batchSize: 100,
   ingredients: [
     potion_de_rappel_sauge,
     potion_de_rappel_eau
   ]
 }
 
+// Brioche à la viande de Bouftou
+//   1 * Une mesure de sel
+//   1 * Une mesue de  poive
+//   1 * Briochette
+// Briochette
+//   1 * Trèfle à 5 feuile
+//   5 * Houblon
+//   1 * cendre éternelle
 export {
   potion_de_rappel,
 }
