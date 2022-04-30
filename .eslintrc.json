@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "sort-imports": [
+      "error"
+    ],
+    "prefer-const": "error",
+    "indent": [
+      "error",
+      2
+    ]
+  }
 }
