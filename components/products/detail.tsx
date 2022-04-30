@@ -1,6 +1,7 @@
 import { POSSIBLE_BATCH_SIZES, Product } from '@/models/product'
 
-import { safeParseInt } from '@/helpers/parse'
+import { NumericInput } from '@/ui/NumericInput'
+import { Select } from '@/ui/Select'
 
 interface Props {
   product: Product
@@ -10,26 +11,18 @@ interface Props {
 export const ProductDetail = ({ product, onChange }: Props) => {
   return <>
     {product.label}
-    <select value={product.batchSize} onChange={event => onChange({ 
+    <Select value={product.batchSize} options={POSSIBLE_BATCH_SIZES} onChange={batchSize => onChange({ 
       ...product,
-      batchSize: Number.parseInt(event.target.value)
-    })}>
-      {
-        POSSIBLE_BATCH_SIZES.map(batchSize => <option key={batchSize} value={batchSize}>
-          {batchSize}
-        </option>)
-      }
-    </select>
+      batchSize: Number.parseInt(batchSize)
+    })}
+    />
     
-    <input 
-      type="number"
+    <NumericInput
       value={product.pricePerBatch} 
-      onChange={event => onChange({
-        ...product, 
-        pricePerBatch: safeParseInt(event.target.value)
+      onChange={pricePerBatch => onChange({
+        ...product,
+        pricePerBatch
       })}
     />
-
-
   </>
 }

@@ -23,9 +23,6 @@
       "@/components/*": [
         "components/*"
       ],
-      "@/helpers/*": [
-        "helpers/*"
-      ],
       "@/ui/*": [
         "ui/*"
       ],
