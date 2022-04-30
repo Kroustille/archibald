@@ -1,4 +1,4 @@
-import { NumericInput as BpNumericInput } from '@blueprintjs/core'
+import { safeParseInt } from 'helpers/parse'
 
 interface Props {
   value: number
@@ -6,8 +6,9 @@ interface Props {
   min?: number
 }
 
-export const NumericInput = ({ onChange, min, value }: Props) => <BpNumericInput 
+export const NumericInput = ({ onChange, min, value }: Props) => <input 
+  type="number"
   value={value} 
   min={min ?? 0}
-  onValueChange={value => onChange(value)}
+  onChange={event => onChange(safeParseInt(event.target.value))}
 />

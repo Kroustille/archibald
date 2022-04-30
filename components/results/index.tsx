@@ -10,6 +10,7 @@ export const Results = ({ recipe }: Props) => {
   const rounded_value = Math.ceil(total_with_taxes * 100 ) / 100
   
   return <section>
-    {rounded_value}
+    <h1>Results</h1>
+    <p>Prix de rentabilité : {rounded_value}</p>
   </section>
 }

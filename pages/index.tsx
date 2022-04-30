@@ -5,6 +5,7 @@ import { Product } from '@/models/product'
 import { Recipe } from '@/models/recipe'
 import { RecipeDetail } from '@/components/recipes/detail'
 import { Results } from '@/components/results'
+import styles from './styles.module.css'
 import { useState } from 'react'
 
 const Home: NextPage = () => {
@@ -50,8 +51,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Hello</h1>
+      <main className={styles.grid}>
         <section>
           {recipes.map((recipe, index) => 
             <RecipeDetail 
@@ -64,6 +64,8 @@ const Home: NextPage = () => {
               }}
             />
           )}
+        </section>
+        <section>
         </section>
         <Results recipe={recipes[0]}/>
       </main>
