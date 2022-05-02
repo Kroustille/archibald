@@ -1,30 +1,22 @@
-import { all_items, brioche_viande_bouftou } from '@/data/items'
+import { Item, isHarvestable } from '@/models/item'
 
 import Head from 'next/head'
-import { Item } from '@/models/item'
 import { ItemDetail } from '@/components/item/detail'
 import type { NextPage } from 'next'
 import { Results } from '@/components/results'
 import { Select } from '@/ui/Select'
 import { Step } from '@/models/step'
-import { StepDetail } from '@/components/steps/detail'
 import { StepList } from '@/components/steps/list'
+import { all_items } from '@/data/items'
 import { useState } from 'react'
 
 const Home: NextPage = () => {
-  const initial_item = brioche_viande_bouftou
-  const step_1: Step = {
-    level: 1,
-    items: initial_item.ingredients
-      .filter(ingredient => ingredient.item.ingredients.length && ingredient.is_handcrafted)
-      .map(ingredient => ingredient.item)
-  }
-  
-  const computeStep = (item: Item): Step[] => {
+  const initial_item = all_items[0]
+  const computeSteps = (item: Item): Step[] => {
     const step = {
       level: 1,
       items: item.ingredients
-        .filter(ingredient => ingredient.item.ingredients.length && ingredient.is_handcrafted)
+        .filter(ingredient => isHarvestable(ingredient.item) && ingredient.is_handcrafted)
         .map(ingredient => ingredient.item)
     }
     
@@ -32,7 +24,7 @@ const Home: NextPage = () => {
   }
   
   const [selected_item, setSelectedItem] = useState(initial_item)
-  const initial_steps: Step[] = computeStep(initial_item)
+  const initial_steps: Step[] = computeSteps(initial_item)
   const [steps, setSteps] = useState(initial_steps)
 
   return (
@@ -49,14 +41,14 @@ const Home: NextPage = () => {
           onChange={item_label => {
             const new_item = all_items.find(item => item.label === item_label) ?? selected_item
             setSelectedItem(new_item)
-            setSteps(computeStep(new_item))
+            setSteps(computeSteps(new_item))
           }}
         />
         <ItemDetail 
           item={selected_item} 
           onChange={(new_item) => {
             setSelectedItem(new_item)
-            setSteps(computeStep(new_item))
+            setSteps(computeSteps(new_item))
           }}
         />
       </header>
