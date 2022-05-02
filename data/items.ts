@@ -264,8 +264,8 @@ const gelee_bleutee: Item = {
 const blugely: Item = {
   id: 'blugely',
   label: 'Blugely',
-  pricePerBatch: 368,
-  batchSize: 1,
+  pricePerBatch: 2499,
+  batchSize: 10,
   ingredients: [
     {
       item: gelee_bleutee,
@@ -286,7 +286,7 @@ const gelee_menthe: Item = {
 const vertgely: Item = {
   id: 'vertgely',
   label: 'Vertgely',
-  pricePerBatch: 368,
+  pricePerBatch: 23,
   batchSize: 1,
   ingredients: [
     {
@@ -308,11 +308,35 @@ const gelee_fraise: Item = {
 const rougely: Item = {
   id: 'rougely',
   label: 'Rougely',
-  pricePerBatch: 368,
-  batchSize: 1,
+  pricePerBatch: 2898,
+  batchSize: 10,
   ingredients: [
     {
       item: gelee_fraise,
+      count: 2,
+      is_handcrafted: false
+    }
+  ]
+}
+
+const multigely: Item = {
+  id: 'multigely',
+  label: 'Multigely',
+  pricePerBatch: 1500,
+  batchSize: 1,
+  ingredients: [
+    {
+      item: blugely,
+      count: 4,
+      is_handcrafted: false
+    },
+    {
+      item: vertgely,
+      count: 3,
+      is_handcrafted: false
+    },
+    {
+      item: rougely,
       count: 2,
       is_handcrafted: false
     }
@@ -381,10 +405,11 @@ const kwakobottes_de_glace: Item = {
 }
 
 const all_items: Item[] = [
-  kwakobottes_de_glace,
+  multigely,
   blugely,
   vertgely,
   rougely,
+  kwakobottes_de_glace,
   briochette,
   potion_de_rappel,
   brioche_viande_bouftou,

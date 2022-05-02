@@ -1,4 +1,5 @@
-import { Ingredient } from '@/models/ingredient'
+import { Ingredient, computePrice } from '@/models/ingredient'
+
 import { NumericInput } from '@/ui/NumericInput'
 import { POSSIBLE_BATCH_SIZES } from '@/models/item'
 import { Select } from '@/ui/Select'
@@ -25,7 +26,10 @@ export const IngredientDetail = ({ className, ingredient, onChange }: Props) => 
         }
       })}/>
     
-      <NumericInput
+      {
+        ingredient.is_handcrafted ? 
+        <span>{computePrice(ingredient)}</span>
+        : <NumericInput
         value={ingredient.item.pricePerBatch} 
         onChange={pricePerBatch => onChange({
           ...ingredient,
@@ -34,6 +38,7 @@ export const IngredientDetail = ({ className, ingredient, onChange }: Props) => 
             pricePerBatch
           }
         })}/>
+      }
     </span>
     
     {
