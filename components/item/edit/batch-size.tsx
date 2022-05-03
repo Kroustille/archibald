@@ -1,6 +1,6 @@
 import { Item, POSSIBLE_BATCH_SIZES } from '@/models/item'
 
-import { Select } from '@/ui/Select'
+import { Select } from '@/components/ui/Select'
 import { safeParseInt } from '@/helpers/parse'
 import { updateItem } from '@/store/items/slice'
 import { useAppDispatch } from '@/hooks/store'

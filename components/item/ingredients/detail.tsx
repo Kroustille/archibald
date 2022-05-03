@@ -28,7 +28,7 @@ export const IngredientDetail = ({ className, ingredient, onChange }: Props) => 
         <ItemEditPricePerBatch item={item}/>
       }
     </span>
-    
+
     {
       !!item.ingredients?.length && <span>
         <label htmlFor={checkbox_id}>A fabriquer</label>

@@ -1,11 +1,11 @@
-import { selectCraftableItems, selectCurrentItem, setSelectedItem } from '@/store/items/slice'
+import { selectCraftableItems, selectCurrentItem, setCurrentItem } from '@/store/items/slice'
 import { useAppDispatch, useAppSelector } from '@/hooks/store'
 
 import Head from 'next/head'
 import { ItemDetail } from '@/components/item/detail'
 import type { NextPage } from 'next'
 import { Results } from '@/components/results'
-import { Select } from '@/ui/Select'
+import { Select } from '@/components/ui/Select'
 
 const Home: NextPage = () => {
   // const computeSteps = (item: Item): Step[] => {
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
   
   const dispatch = useAppDispatch()
   const items = useAppSelector(selectCraftableItems)
-  const selected_item = useAppSelector(selectCurrentItem)
+  const current_item = useAppSelector(selectCurrentItem)
 
   return (
     <div className='page'>
@@ -37,15 +37,15 @@ const Home: NextPage = () => {
       <header>
         <h1>Entrée</h1>
         <Select
-          value={selected_item.id} 
+          value={current_item.id} 
           options={items.map(item => ({ 
             key: item.id,
             value: item.id,
             label: item.label
           }))}
-          onChange={item_id => dispatch(setSelectedItem({ item_id }))}
+          onChange={item_id => dispatch(setCurrentItem({ item_id }))}
         />
-        <ItemDetail item={selected_item} />
+        <ItemDetail item={current_item} />
       </header>
       <main>
         {/* <StepList
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           onChange={steps => setSteps(steps)}
         /> */}
       </main>
-      <Results item={selected_item}/>
+      <Results item={current_item}/>
     </div>
   )
 }

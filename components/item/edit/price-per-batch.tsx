@@ -1,5 +1,5 @@
 import { Item } from '@/models/item'
-import { NumericInput } from '@/ui/NumericInput'
+import { NumericInput } from '@/components/ui/NumericInput'
 import { updateItem } from '@/store/items/slice'
 import { useAppDispatch } from '@/hooks/store'
 

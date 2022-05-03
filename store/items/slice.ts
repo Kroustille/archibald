@@ -23,7 +23,7 @@ export const itemsSlice = createSlice({
   name: 'items',
   initialState,
   reducers: {
-    updateItem: (state: ItemState, { payload }: PayloadAction<{ item: Item }>) => {
+    updateItem: (state: ItemState, { payload }: PayloadAction<{ item: Item }>): ItemState => {
       const { item } = payload
       return {
         ...state,
@@ -33,17 +33,17 @@ export const itemsSlice = createSlice({
         }
       }
     },
-    setSelectedItem: (state: ItemState, { payload }: PayloadAction<{ item_id: string}>) => {
+    setCurrentItem: (state: ItemState, { payload }: PayloadAction<{ item_id: string}>): ItemState => {
       const { item_id } = payload
       return {
         ...state,
-        selected_item_id: item_id
+        current_item_id: item_id
       }
     }
   }
 })
 
-export const { updateItem, setSelectedItem } = itemsSlice.actions
+export const { updateItem, setCurrentItem } = itemsSlice.actions
 
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
 export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(item => item.ingredients.length)
