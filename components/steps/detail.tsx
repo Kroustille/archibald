@@ -6,10 +6,10 @@ interface Props {
 }
 
 export const StepDetail = ({ step }: Props ) => {
-  const { level, items } = step
+  const { level, item_ids } = step
   return <section>
     <h1>Etape {level}</h1>
     
-    {items.map(item => <ItemDetail key={item.id} item={item} />)}
+    {item_ids.map(item_id => <ItemDetail key={item_id} item_id={item_id} />)}
   </section>
 }

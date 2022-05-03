@@ -1,15 +1,22 @@
+import { selectItem, updateItem } from '@/store/items/slice'
+import { useAppDispatch, useAppSelector } from '@/hooks/store'
+
 import { Ingredient } from '@/models/ingredient'
 import { IngredientDetail } from '@/components/item/ingredients/detail'
 import { Item } from '@/models/item'
-import { updateItem } from '@/store/items/slice'
-import { useAppDispatch } from '@/hooks/store'
 
 interface Props {
-  item: Item
+  item_id: string
 }
 
-export const ItemDetail = ({ item }: Props) => {
+export const ItemDetail = ({ item_id }: Props) => {
   const dispatch = useAppDispatch()
+  const item = useAppSelector(state => selectItem(state, item_id))
+
+  if (!item) {
+    return null
+  }
+
   const handleIngredientChange = (new_ingredient: Ingredient, index: number) => {
     const new_ingredients = [...item.ingredients]
     new_ingredients[index] = new_ingredient
@@ -22,7 +29,7 @@ export const ItemDetail = ({ item }: Props) => {
     }))
   }
 
-  return <article>
+  return item ? <article>
     <h2>{item.label}</h2>
     <form>
       {item.ingredients.map((ingredient, index) => <IngredientDetail 
@@ -31,5 +38,5 @@ export const ItemDetail = ({ item }: Props) => {
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}
       />)}
     </form>
-  </article>
+  </article> : null
 }

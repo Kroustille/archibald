@@ -68,6 +68,6 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
 
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
 export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(item => item.ingredients.length)
-export const selectItem = (state: AppState, item_id: string): Item => ({ ...state.items.all[item_id] })
+export const selectItem = (state: AppState, item_id: string): Item | null => (state.items.all[item_id] ? { ...state.items.all[item_id] } : null)
 
 export const itemsReducer = itemsSlice.reducer  

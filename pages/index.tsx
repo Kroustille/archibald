@@ -6,6 +6,7 @@ import { ItemDetail } from '@/components/item/detail'
 import type { NextPage } from 'next'
 import { Results } from '@/components/results'
 import { Select } from '@/components/ui/Select'
+import { StepList } from '@/components/steps/list'
 
 const Home: NextPage = () => {
   // const computeSteps = (item: Item): Step[] => {
@@ -45,13 +46,10 @@ const Home: NextPage = () => {
           }))}
           onChange={item_id => dispatch(setCurrentItem({ item_id }))}
         />
-        <ItemDetail item={current_item} />
+        <ItemDetail item_id={current_item.id} />
       </header>
       <main>
-        {/* <StepList
-          steps={steps.filter(step => step.items.length)} 
-          onChange={steps => setSteps(steps)}
-        /> */}
+        {/* <StepList steps={steps.filter(step => step.items.length)} /> */}
       </main>
       <Results item={current_item}/>
     </div>

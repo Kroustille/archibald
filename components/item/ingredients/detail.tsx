@@ -15,13 +15,16 @@ interface Props {
 export const IngredientDetail = ({ className, ingredient, onChange }: Props) => {
   const item = useAppSelector(state => selectItem(state, ingredient.item_id))
   const item_price = useAppSelector(state => selectUnitPrice(state, ingredient.item_id))
+  if (!item) {
+    return null
+  }
+
   const checkbox_id = `ingredient-${item}`;
 
   return <fieldset className={className}>
     <legend>{ingredient.count} X&nbsp;{item.label}</legend>
       
     <span className={styles.form}>
-    
       {
         ingredient.is_handcrafted ? 
         <span>{item_price}</span> : <>
