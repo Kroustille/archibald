@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '@/hooks/store'
 
 import { Ingredient } from '@/models/ingredient'
 import { IngredientDetail } from '@/components/item/ingredients/detail'
-import { Item } from '@/models/item'
 
 interface Props {
   item_id: string
@@ -12,7 +11,6 @@ interface Props {
 export const ItemDetail = ({ item_id }: Props) => {
   const dispatch = useAppDispatch()
   const item = useAppSelector(state => selectItem(state, item_id))
-
   if (!item) {
     return null
   }
@@ -20,7 +18,7 @@ export const ItemDetail = ({ item_id }: Props) => {
   const handleIngredientChange = (new_ingredient: Ingredient, index: number) => {
     const new_ingredients = [...item.ingredients]
     new_ingredients[index] = new_ingredient
-    
+
     dispatch(updateItem({
       item: {
         ...item,
@@ -32,8 +30,8 @@ export const ItemDetail = ({ item_id }: Props) => {
   return item ? <article>
     <h2>{item.label}</h2>
     <form>
-      {item.ingredients.map((ingredient, index) => <IngredientDetail 
-        key={ingredient.item_id} 
+      {item.ingredients.map((ingredient, index) => <IngredientDetail
+        key={ingredient.item_id}
         ingredient={ingredient}
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}
       />)}

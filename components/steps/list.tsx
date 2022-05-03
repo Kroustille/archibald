@@ -19,7 +19,22 @@ export const StepList = ({ item_ids, level }: Props) => {
     item_ids
   }
 
+  const next_step_ids = items.reduce((acc, item) => {
+    item.ingredients.forEach((ingredient) => {
+      if (ingredient.is_handcrafted) {
+        acc.push(ingredient.item_id)
+      }
+    })
+
+    return acc
+  }, new Array<string>())
+
   return <>
-    {<StepDetail key={current_step.level} step={current_step} />}
+    {<StepDetail
+      key={current_step.level}
+      step={current_step}
+      />
+    }
+    {!!next_step_ids.length && <StepList level={current_step.level+1} item_ids={next_step_ids} />}
   </>
 }

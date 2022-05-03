@@ -35,7 +35,12 @@ const Home: NextPage = () => {
       </header>
 
       <main>
-        <StepList item_ids={current_item.ingredients.filter(ingredient => ingredient.is_handcrafted).map(ingredient => ingredient.item_id)} level={1} />
+        <StepList item_ids={
+          current_item.ingredients
+            .filter(ingredient => ingredient.is_handcrafted)
+            .map(ingredient => ingredient.item_id)
+          } level={1}
+        />
       </main>
       <Results item={current_item}/>
     </div>

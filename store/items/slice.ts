@@ -55,15 +55,21 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
     return item.pricePerBatch / item.batchSize
   }
 
-  return item.ingredients.reduce((total_price, ingredient) => {
+  const ingredients_price = item.ingredients.reduce((total_price, ingredient) => {
     const ingredient_item = state.items.all[ingredient.item_id]
     if (!ingredient_item) {
       console.warn('item not found', ingredient.item_id)
       return total_price
     }
 
-    return selectUnitPrice(state, ingredient_item.id)
+    if (!ingredient.is_handcrafted) {
+      return total_price + (ingredient_item.pricePerBatch / ingredient_item.batchSize)
+    }
+
+    return total_price + selectUnitPrice(state, ingredient_item.id)
   }, 0)
+
+  return Math.round(ingredients_price * 100) / 100
 }
 
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
