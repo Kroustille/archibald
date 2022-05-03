@@ -24,7 +24,7 @@ export const ItemEditBatchSize = ({ item }: Props) => {
       item: {
         ...item,
         batchSize: safeParseInt(batchSize),
-        pricePerBatch: Math.floor(item.pricePerBatch / (safeParseInt(batchSize) / item.batchSize))
+        pricePerBatch: Math.floor(item.pricePerBatch / (item.batchSize / safeParseInt(batchSize)))
       }}
     ))
   }/>
