@@ -2,7 +2,7 @@ import { selectItem, updateItem } from '@/store/items/slice'
 import { useAppDispatch, useAppSelector } from '@/hooks/store'
 
 import { Ingredient } from '@/models/ingredient'
-import { IngredientDetail } from '@/components/item/ingredients/detail'
+import { ItemIngredientsDetail } from '@/components/item/ingredients/detail'
 
 interface Props {
   item_id: string
@@ -30,7 +30,7 @@ export const ItemDetail = ({ item_id }: Props) => {
   return item ? <article>
     <h2>{item.label}</h2>
     <form>
-      {item.ingredients.map((ingredient, index) => <IngredientDetail
+      {item.ingredients.map((ingredient, index) => <ItemIngredientsDetail
         key={ingredient.item_id}
         ingredient={ingredient}
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}

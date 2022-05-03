@@ -1,34 +1,16 @@
-import { Item } from '@/models/item'
 import { computePrice } from '@/models/ingredient'
+import { selectUnitPrice } from '@/store/items/slice'
+import { useAppSelector } from '@/hooks/store'
 
 interface Props {
-  item: Item
+  item_id: string
 }
 
-export const Results = ({ item }: Props) => {
-  const total_without_taxes = item.ingredients.reduce((result, ingredient) => result + computePrice(ingredient), 0)
+export const Results = ({ item_id }: Props) => {
+  const total_without_taxes = useAppSelector(state => selectUnitPrice(state, item_id))
   const total_with_taxes = total_without_taxes * 1.02
-  const rounded_value = Math.ceil(total_with_taxes * 100 ) / 100
-  
+  const total_rounded = Math.ceil(total_with_taxes * 100 ) / 100
   return <footer>
-    <h1>Sortie : {rounded_value}</h1>
-
-    <h2>Ingrédients utilisés</h2>
-    <ul>
-      {/* {
-        item.ingredients.map((ingredient) => <li key={ingredient.item_id}>
-          {ingredient.item.label} 
-          {
-            ingredient.is_handcrafted ? <ul>
-              {ingredient.item.ingredients.map(i => <li key={i.item.id}>
-                {i.item.label} {computePrice(i)}
-                </li>
-                )
-              }
-            </ul> : computePrice(ingredient)
-          }
-        </li>)
-      } */}
-    </ul>
+    <h1>Sortie : {total_rounded}</h1>
   </footer>
 }

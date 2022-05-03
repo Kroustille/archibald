@@ -1,4 +1,4 @@
-import { selectCraftableItems, selectCurrentItem, setCurrentItem } from '@/store/items/slice'
+import { resetIsHandcrafted, selectCraftableItems, selectCurrentItem, setCurrentItem } from '@/store/items/slice'
 import { useAppDispatch, useAppSelector } from '@/hooks/store'
 
 import Head from 'next/head'
@@ -7,6 +7,7 @@ import type { NextPage } from 'next'
 import { Results } from '@/components/results'
 import { Select } from '@/components/ui/Select'
 import { StepList } from '@/components/steps/list'
+import { StepsContainer } from '@/components/steps/container'
 
 const Home: NextPage = () => {
   const dispatch = useAppDispatch()
@@ -29,20 +30,15 @@ const Home: NextPage = () => {
             value: item.id,
             label: item.label
           }))}
-          onChange={item_id => dispatch(setCurrentItem({ item_id }))}
+          onChange={item_id => {
+            dispatch(setCurrentItem({ item_id }))
+            dispatch(resetIsHandcrafted())
+          }}
         />
         <ItemDetail item_id={current_item.id} />
       </header>
-
-      <main>
-        <StepList item_ids={
-          current_item.ingredients
-            .filter(ingredient => ingredient.is_handcrafted)
-            .map(ingredient => ingredient.item_id)
-          } level={1}
-        />
-      </main>
-      <Results item={current_item}/>
+      <StepsContainer item={current_item} />
+      <Results item_id={current_item.id}/>
     </div>
   )
 }

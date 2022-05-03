@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { all_items, boufbottes, multigely } from '@/data/items'
+import { all_items, boufbottes } from '@/data/items'
 
 import { AppState } from '@/store'
 import { Item } from '@/models/item'
@@ -9,10 +9,14 @@ export interface ItemState {
   current_item_id: string
 }
 
-const initialItems = all_items.reduce((acc, item) => {
-  acc[item.id] = item
-  return acc
-}, {} as Record<string, Item>)
+function indexItemsById(items: Item[]): Record<string, Item> {
+  return items.reduce((acc, item) => {
+    acc[item.id] = item
+    return acc
+  }, {} as Record<string, Item>)
+}
+
+const initialItems = indexItemsById(all_items)
 
 const initialState: ItemState = {
   all: initialItems,
@@ -39,11 +43,25 @@ export const itemsSlice = createSlice({
         ...state,
         current_item_id: item_id
       }
+    },
+    resetIsHandcrafted: (state: ItemState): ItemState => {
+      const new_items = Object.values(state.all).map(item => ({
+        ...item,
+        ingredients: item.ingredients.map(ingredient =>( {
+          ...ingredient,
+          is_handcrafted: false
+        }))
+      }))
+
+      return {
+        ...state,
+        all: indexItemsById(new_items)
+      }
     }
   }
 })
 
-export const { updateItem, setCurrentItem } = itemsSlice.actions
+export const { resetIsHandcrafted, setCurrentItem, updateItem } = itemsSlice.actions
 
 export const selectUnitPrice = (state: AppState, item_id: string): number => {
   const item = state.items.all[item_id]
@@ -63,13 +81,13 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
     }
 
     if (!ingredient.is_handcrafted) {
-      return total_price + (ingredient_item.pricePerBatch / ingredient_item.batchSize)
+      return total_price + (ingredient_item.pricePerBatch / ingredient_item.batchSize) * ingredient.count
     }
 
     return total_price + selectUnitPrice(state, ingredient_item.id)
   }, 0)
 
-  return Math.round(ingredients_price * 100) / 100
+  return Math.ceil(ingredients_price * 100 ) / 100
 }
 
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
