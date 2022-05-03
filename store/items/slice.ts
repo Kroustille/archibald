@@ -1,6 +1,6 @@
 import { Item, isCraftable } from '@/models/item'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { all_items, boufbottes } from '@/data/items'
+import { all_items, ceinture_du_bandit } from '@/data/items'
 
 import { AppState } from '@/store'
 
@@ -19,7 +19,7 @@ function indexItemsById(items: Item[]): Record<string, Item> {
 const initialItems = indexItemsById(all_items)
 const initialState: ItemState = {
   all: initialItems,
-  current_item_id: boufbottes.id
+  current_item_id: ceinture_du_bandit.id
 }
 
 export const itemsSlice = createSlice({

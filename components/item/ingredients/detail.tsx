@@ -22,7 +22,12 @@ export const ItemIngredientsDetail = ({ className, ingredient, onChange }: Props
   }
 
   return <fieldset className={className}>
-    <legend>{ingredient.count} X&nbsp;{item.label} = {ingredient.count * (ingredient.is_handcrafted ? ingredient.count * item_unit_price : item.pricePerBatch / item.batchSize)}</legend>
+    <legend>{ingredient.count} X&nbsp;{item.label} = {
+      Math.ceil(ingredient.count * (
+        ingredient.is_handcrafted ?
+        ingredient.count * item_unit_price :
+        item.pricePerBatch / item.batchSize
+      ))}</legend>
 
     <span className={styles.form}>
       {

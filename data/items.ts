@@ -1,6 +1,6 @@
 import { Item } from '@/models/item'
 
-const sauge: Item = {
+export const sauge: Item = {
   id: 'sauge',
   label: 'Sauge',
   batchSize: 100,
@@ -8,7 +8,7 @@ const sauge: Item = {
   ingredients: []
 }
 
-const eau: Item = {
+export const eau: Item = {
   id: 'eau',
   label: 'Eau',
   batchSize: 10,
@@ -16,7 +16,7 @@ const eau: Item = {
   ingredients: []
 }
 
-const potion_de_rappel: Item = {
+export const potion_de_rappel: Item = {
   id: 'potion_de_rappel',
   label: 'Potion de rappel',
   pricePerBatch: 0,
@@ -33,7 +33,7 @@ const potion_de_rappel: Item = {
   ]
 }
 
-const mesure_de_sel: Item = {
+export const mesure_de_sel: Item = {
   id: 'mesure_de_sel',
   label: 'Mesure de sel',
   pricePerBatch: 800,
@@ -41,7 +41,7 @@ const mesure_de_sel: Item = {
   ingredients: []
 }
 
-const mesure_de_poivre: Item = {
+export const mesure_de_poivre: Item = {
   id: 'mesure_de_poivre',
   label: 'Mesure de poivre',
   pricePerBatch: 6937,
@@ -49,7 +49,7 @@ const mesure_de_poivre: Item = {
   ingredients: []
 }
 
-const trefle_5_feuilles: Item = {
+export const trefle_5_feuilles: Item = {
   id: 'trefle_5_feuilles',
   label: 'Trefle à 5 feuilles',
   pricePerBatch: 104,
@@ -57,7 +57,7 @@ const trefle_5_feuilles: Item = {
   ingredients: []
 }
 
-const houblon: Item = {
+export const houblon: Item = {
   id: 'houblon',
   label: 'Houblon',
   pricePerBatch: 94,
@@ -65,7 +65,7 @@ const houblon: Item = {
   ingredients: []
 }
 
-const cendre_eternelle: Item = {
+export const cendre_eternelle: Item = {
   id: 'cendre_eternelle',
   label: 'Cendre éternelle',
   pricePerBatch: 1000,
@@ -73,7 +73,7 @@ const cendre_eternelle: Item = {
   ingredients: []
 }
 
-const briochette: Item = {
+export const briochette: Item = {
   id: 'briochette',
   label: 'Briochette',
   pricePerBatch: 23889,
@@ -94,7 +94,7 @@ const briochette: Item = {
   ]
 }
 
-const brioche_viande_bouftou: Item = {
+export const brioche_viande_bouftou: Item = {
   id: 'brioche_viande_bouftou',
   label: 'Brioche à la viande de Bouftou',
   pricePerBatch: 0,
@@ -115,7 +115,7 @@ const brioche_viande_bouftou: Item = {
   ]
 }
 
-const frene: Item = {
+export const frene: Item = {
   id: 'frene',
   label: 'Bois de Frene',
   pricePerBatch: 1500,
@@ -123,7 +123,7 @@ const frene: Item = {
   ingredients: []
 }
 
-const chataigner: Item = {
+export const chataigner: Item = {
   id: 'chataigner',
   label: 'Bois de Châtaigner',
   pricePerBatch: 1650,
@@ -131,7 +131,7 @@ const chataigner: Item = {
   ingredients: []
 }
 
-const planche_contreplaquee: Item = {
+export const planche_contreplaquee: Item = {
   id: 'planche_contreplaquee',
   label: 'Planche contreplaquee',
   pricePerBatch: 1000,
@@ -148,7 +148,7 @@ const planche_contreplaquee: Item = {
   ]
 }
 
-const ortie: Item = {
+export const ortie: Item = {
   id: 'ortie',
   label: 'Ortie',
   pricePerBatch: 1000,
@@ -156,7 +156,7 @@ const ortie: Item = {
   ingredients: []
 }
 
-const potion_de_souvenir: Item = {
+export const potion_de_souvenir: Item = {
   id: 'potion_de_souvenir',
   label: 'Potion de Souvenir',
   pricePerBatch: 100,
@@ -173,7 +173,7 @@ const potion_de_souvenir: Item = {
   ]
 }
 
-const laine_de_bouftou: Item = {
+export const laine_de_bouftou: Item = {
   id: 'laine_de_bouftou',
   label: 'Laine de Bouftou',
   pricePerBatch: 100,
@@ -181,7 +181,7 @@ const laine_de_bouftou: Item = {
   ingredients: []
 }
 
-const substrat_de_buisson: Item = {
+export const substrat_de_buisson: Item = {
   id: 'substrat_de_buisson',
   label: 'Substrat de buisson',
   pricePerBatch: 100,
@@ -198,7 +198,7 @@ const substrat_de_buisson: Item = {
   ]
 }
 
-const oeil_de_boufton: Item = {
+export const oeil_de_boufton: Item = {
   id: 'oeil_de_boufton',
   label: 'Oeil de Boufton',
   pricePerBatch: 100,
@@ -206,10 +206,10 @@ const oeil_de_boufton: Item = {
   ingredients: []
 }
 
-const boufbottes: Item = {
+export const boufbottes: Item = {
   id: 'boufbottes',
   label: 'Boufbottes',
-  pricePerBatch: 1000,
+  pricePerBatch: 90,
   batchSize: 1,
   ingredients: [
     {
@@ -229,7 +229,7 @@ const boufbottes: Item = {
   ]
 }
 
-const gelee_bleutee: Item = {
+export const gelee_bleutee: Item = {
   id: 'gelee_bleutee',
   label: 'Gelée bleutée',
   pricePerBatch: 8877,
@@ -237,7 +237,7 @@ const gelee_bleutee: Item = {
   ingredients: []
 }
 
-const blugely: Item = {
+export const blugely: Item = {
   id: 'blugely',
   label: 'Blugely',
   pricePerBatch: 2499,
@@ -250,7 +250,7 @@ const blugely: Item = {
   ]
 }
 
-const gelee_menthe: Item = {
+export const gelee_menthe: Item = {
   id: 'gelee_menthe',
   label: 'Gelée à la menthe',
   pricePerBatch: 1998,
@@ -258,7 +258,7 @@ const gelee_menthe: Item = {
   ingredients: []
 }
 
-const vertgely: Item = {
+export const vertgely: Item = {
   id: 'vertgely',
   label: 'Vertgely',
   pricePerBatch: 23,
@@ -271,7 +271,7 @@ const vertgely: Item = {
   ]
 }
 
-const gelee_fraise: Item = {
+export const gelee_fraise: Item = {
   id: 'gelee_fraise',
   label: 'Gelée à la fraise',
   pricePerBatch: 59782,
@@ -279,7 +279,7 @@ const gelee_fraise: Item = {
   ingredients: []
 }
 
-const rougely: Item = {
+export const rougely: Item = {
   id: 'rougely',
   label: 'Rougely',
   pricePerBatch: 2898,
@@ -292,7 +292,7 @@ const rougely: Item = {
   ]
 }
 
-const multigely: Item = {
+export const multigely: Item = {
   id: 'multigely',
   label: 'Multigely',
   pricePerBatch: 1500,
@@ -313,7 +313,7 @@ const multigely: Item = {
   ]
 }
 
-const bec_kwak_glace: Item = {
+export const bec_kwak_glace: Item = {
   id: 'bec_kwak_glace',
   label: 'Bec du kwak de glace',
   pricePerBatch: 15,
@@ -321,7 +321,7 @@ const bec_kwak_glace: Item = {
   ingredients: []
 }
 
-const dent_pointue: Item = {
+export const dent_pointue: Item = {
   id: 'dent_pointue',
   label: 'Dent pointue',
   pricePerBatch: 60,
@@ -329,26 +329,42 @@ const dent_pointue: Item = {
   ingredients: []
 }
 
-const ebonite: Item = {
+export const ebonite: Item = {
   id: 'ebonite',
   label: 'Ebonite',
   pricePerBatch: 16235,
-  batchSize: 100,
-  ingredients: []
-}
-
-const plume_du_kwakwa: Item = {
-  id: 'plume_du_kwakwa',
-  label: 'Plume du Kwakwa',
-  pricePerBatch: 12988,
   batchSize: 10,
   ingredients: []
 }
 
-const kwakobottes_de_glace: Item = {
+export const plume_du_kwakwa: Item = {
+  id: 'plume_du_kwakwa',
+  label: 'Plume du Kwakwa',
+  pricePerBatch: 8800,
+  batchSize: 10,
+  ingredients: []
+}
+
+export const plume_kwak_flamme: Item = {
+  id: 'plume_kwak_flamme',
+  label: 'Plume du Kwak de flammes',
+  pricePerBatch: 6250,
+  batchSize: 10,
+  ingredients: []
+}
+
+export const cuir_de_ouassingue: Item = {
+  id: 'cuir_de_ouassingue',
+  label: 'Cuir de Ouassingue',
+  pricePerBatch: 4598,
+  batchSize: 10,
+  ingredients: []
+}
+
+export const kwakobottes_de_glace: Item = {
   id: 'kwakobottes_de_glace',
   label: 'Kwakobottes de glace',
-  pricePerBatch: 368,
+  pricePerBatch: 20000,
   batchSize: 1,
   ingredients: [
     {
@@ -370,14 +386,74 @@ const kwakobottes_de_glace: Item = {
   ]
 }
 
-const all_items: Item[] = [
+export const kwakobottes_de_flammes: Item = {
+  id: 'kwakobottes_de_flammes',
+  label: 'Kwakobottes de flammes',
+  pricePerBatch: 48000,
+  batchSize: 1,
+  ingredients: [
+    {
+      item_id: plume_kwak_flamme.id,
+      count: 7
+    },
+    {
+      item_id: cuir_de_ouassingue.id,
+      count: 6
+    },
+    {
+      item_id: ebonite.id,
+      count: 2
+    },
+    {
+      item_id: plume_du_kwakwa.id,
+      count: 10
+    }
+  ]
+}
+
+export const tatouage_de_mauvais_garcon: Item = {
+  id: 'tatouage_de_mauvais_garcon',
+  label: 'Tatouage de mauvais garcon',
+  pricePerBatch: 18999,
+  batchSize: 10,
+  ingredients: []
+}
+
+export const poil_arakne_malade: Item = {
+  id: 'poil_arakne_malade',
+  label: 'Poil d\'Arakne malade',
+  pricePerBatch: 3169,
+  batchSize: 10,
+  ingredients: []
+}
+
+export const ceinture_du_bandit: Item = {
+  id: 'ceinture_du_bandit',
+  label: 'Ceinture du bandit',
+  pricePerBatch: 17000,
+  batchSize: 1,
+  ingredients: [
+    {
+      item_id: tatouage_de_mauvais_garcon.id,
+      count: 3
+    },
+    {
+      item_id: poil_arakne_malade.id,
+      count: 3
+    }
+  ]
+}
+
+export const all_items: Item[] = [
   bec_kwak_glace,
   blugely,
   boufbottes,
   brioche_viande_bouftou,
   briochette,
+  ceinture_du_bandit,
   cendre_eternelle,
   chataigner,
+  cuir_de_ouassingue,
   dent_pointue,
   eau,
   ebonite,
@@ -386,6 +462,7 @@ const all_items: Item[] = [
   gelee_fraise,
   gelee_menthe,
   houblon,
+  kwakobottes_de_flammes,
   kwakobottes_de_glace,
   laine_de_bouftou,
   mesure_de_poivre,
@@ -395,22 +472,14 @@ const all_items: Item[] = [
   ortie,
   planche_contreplaquee,
   plume_du_kwakwa,
+  plume_kwak_flamme,
+  poil_arakne_malade,
   potion_de_rappel,
   potion_de_souvenir,
   rougely,
   sauge,
   substrat_de_buisson,
+  tatouage_de_mauvais_garcon,
   trefle_5_feuilles,
   vertgely,
 ]
-
-export {
-  all_items,
-  potion_de_rappel,
-  brioche_viande_bouftou,
-  boufbottes,
-  blugely,
-  briochette,
-  multigely,
-  kwakobottes_de_glace
-}
