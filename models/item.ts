@@ -1,6 +1,6 @@
 import { Ingredient } from '@/models/ingredient'
 
-export const POSSIBLE_BATCH_SIZES = [1, 10, 100] 
+export const POSSIBLE_BATCH_SIZES = [1, 10, 100]
 
 export interface Item {
   id: string
@@ -10,6 +10,6 @@ export interface Item {
   ingredients: Ingredient[]
 }
 
-export function isHarvestable(item: Item): boolean {
+export function isCraftable(item: Item): boolean {
   return Boolean(item.ingredients.length)
 }

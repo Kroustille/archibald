@@ -411,5 +411,6 @@ export {
   boufbottes,
   blugely,
   briochette,
-  multigely
+  multigely,
+  kwakobottes_de_glace
 }

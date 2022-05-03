@@ -1,8 +1,8 @@
+import { Item, isCraftable } from '@/models/item'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { all_items, boufbottes } from '@/data/items'
 
 import { AppState } from '@/store'
-import { Item } from '@/models/item'
 
 export interface ItemState {
   all: Record<string, Item>
@@ -17,7 +17,6 @@ function indexItemsById(items: Item[]): Record<string, Item> {
 }
 
 const initialItems = indexItemsById(all_items)
-
 const initialState: ItemState = {
   all: initialItems,
   current_item_id: boufbottes.id
@@ -69,14 +68,13 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
     return 0
   }
 
-  if (!item.ingredients.length) {
+  if (!isCraftable(item)) {
     return item.pricePerBatch / item.batchSize
   }
 
   const ingredients_price = item.ingredients.reduce((total_price, ingredient) => {
     const ingredient_item = state.items.all[ingredient.item_id]
     if (!ingredient_item) {
-      console.warn('item not found', ingredient.item_id)
       return total_price
     }
 
@@ -95,7 +93,7 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
 }
 
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
-export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(item => item.ingredients.length)
+export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(isCraftable)
 export const selectItem = (state: AppState, item_id: string): Item | null => (state.items.all[item_id] ? { ...state.items.all[item_id] } : null)
 export const selectItems = (state: AppState, item_ids: string[]): Item[] => item_ids.reduce((acc, item_id) => {
   const item = selectItem(state, item_id)
