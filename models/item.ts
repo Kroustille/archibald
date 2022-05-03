@@ -9,3 +9,7 @@ export interface Item {
   batchSize: number
   ingredients: Ingredient[]
 }
+
+export function isHarvestable(item: Item): boolean {
+  return Boolean(item.ingredients.length)
+}
