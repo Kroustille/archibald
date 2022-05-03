@@ -17,11 +17,11 @@ export const ItemDetail = ({ item, onChange }: Props) => {
     })
   }
 
-  return  <article>
+  return <article>
     <h2>{item.label}</h2>
     <form>
       {item.ingredients.map((ingredient, index) => <IngredientDetail 
-        key={ingredient.item.id} 
+        key={ingredient.item_id} 
         ingredient={ingredient}
         onChange={new_ingredient => handleIngredientChange(new_ingredient, index)}
       />)}

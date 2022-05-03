@@ -15,8 +15,8 @@ export const Results = ({ item }: Props) => {
 
     <h2>Ingrédients utilisés</h2>
     <ul>
-      {
-        item.ingredients.map((ingredient) => <li key={ingredient.item.id}>
+      {/* {
+        item.ingredients.map((ingredient) => <li key={ingredient.item_id}>
           {ingredient.item.label} 
           {
             ingredient.is_handcrafted ? <ul>
@@ -28,7 +28,7 @@ export const Results = ({ item }: Props) => {
             </ul> : computePrice(ingredient)
           }
         </li>)
-      }
+      } */}
     </ul>
   </footer>
 }

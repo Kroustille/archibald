@@ -20,17 +20,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/data/*": [
-        "data/*"
-      ],
-      "@/ui/*": [
-        "ui/*"
-      ],
-      "@/models/*": [
-        "models/*"
+      "@/*": [
+        "*"
       ]
     },
   },

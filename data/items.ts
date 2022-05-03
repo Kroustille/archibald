@@ -1,48 +1,43 @@
 import { Ingredient } from '@/models/ingredient'
 import { Item } from '@/models/item'
-import { Recipe } from '@/models/recipe'
 
 const sauge: Item = {
-  id: '1',
+  id: 'sauge',
   label: 'Sauge',
   batchSize: 100,
   pricePerBatch: 3000,
   ingredients: []
 }
 
-const potion_de_rappel_sauge: Ingredient = {
-  item: sauge,
-  count: 4,
-  is_handcrafted: false
-}
-
 const eau: Item = {
-  id: '2',
+  id: 'eau',
   label: 'Eau',
   batchSize: 10,
   pricePerBatch: 200,
   ingredients: []
 }
 
-const potion_de_rappel_eau: Ingredient = {
-  item: eau,
-  count: 1,
-  is_handcrafted: false
-}
-
 const potion_de_rappel: Item = {
-  id: '3',
+  id: 'potion_de_rappel',
   label: 'Potion de rappel',
   pricePerBatch: 0,
   batchSize: 100,
   ingredients: [
-    potion_de_rappel_sauge,
-    potion_de_rappel_eau
+    {
+      item_id: sauge.id,
+      count: 4,
+      is_handcrafted: false
+    },
+    {
+      item_id: eau.id,
+      count: 1,
+      is_handcrafted: false
+    }
   ]
 }
 
 const mesure_de_sel: Item = {
-  id: '4',
+  id: 'mesure_de_sel',
   label: 'Mesure de sel',
   pricePerBatch: 800,
   batchSize: 10,
@@ -50,7 +45,7 @@ const mesure_de_sel: Item = {
 }
 
 const mesure_de_poivre: Item = {
-  id: '5',
+  id: 'mesure_de_poivre',
   label: 'Mesure de poivre',
   pricePerBatch: 6937,
   batchSize: 100,
@@ -58,7 +53,7 @@ const mesure_de_poivre: Item = {
 }
 
 const trefle_5_feuilles: Item = {
-  id: '6',
+  id: 'trefle_5_feuilles',
   label: 'Trefle à 5 feuilles',
   pricePerBatch: 104,
   batchSize: 10,
@@ -66,7 +61,7 @@ const trefle_5_feuilles: Item = {
 }
 
 const houblon: Item = {
-  id: '7',
+  id: 'houblon',
   label: 'Houblon',
   pricePerBatch: 94,
   batchSize: 10,
@@ -74,7 +69,7 @@ const houblon: Item = {
 }
 
 const cendre_eternelle: Item = {
-  id: '8',
+  id: 'cendre_eternelle',
   label: 'Cendre éternelle',
   pricePerBatch: 1000,
   batchSize: 10,
@@ -82,23 +77,23 @@ const cendre_eternelle: Item = {
 }
 
 const briochette: Item = {
-  id: '9',
+  id: 'briochette',
   label: 'Briochette',
   pricePerBatch: 23889,
   batchSize: 100,
   ingredients: [
     {
-      item: trefle_5_feuilles,
+      item_id: trefle_5_feuilles.id,
       count: 1,
       is_handcrafted: false
     },
     {
-      item: houblon,
+      item_id: houblon.id,
       count: 5,
       is_handcrafted: false
     },
     {
-      item: cendre_eternelle,
+      item_id: cendre_eternelle.id,
       count: 1,
       is_handcrafted: false
     }
@@ -107,23 +102,23 @@ const briochette: Item = {
 
 
 const brioche_viande_bouftou: Item = {
-  id: '10',
+  id: 'brioche_viande_bouftou',
   label: 'Brioche à la viande de Bouftou',
   pricePerBatch: 0,
   batchSize: 100,
   ingredients: [
     {
-      item: mesure_de_sel,
+      item_id: mesure_de_sel.id,
       count: 1,
       is_handcrafted: false
     },
     {
-      item: mesure_de_poivre,
+      item_id: mesure_de_poivre.id,
       count: 1,
       is_handcrafted: false
     },
     {
-      item: briochette,
+      item_id: briochette.id,
       count: 1,
       is_handcrafted: false
     }
@@ -153,12 +148,12 @@ const planche_contreplaquee: Item = {
   batchSize: 10,
   ingredients: [
     {
-      item: frene,
+      item_id: frene.id,
       count: 10,
       is_handcrafted: false
     },
     {
-      item: chataigner,
+      item_id: chataigner.id,
       count: 10,
       is_handcrafted: false
     }
@@ -180,12 +175,12 @@ const potion_de_souvenir: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: ortie,
+      item_id: ortie.id,
       count: 20,
       is_handcrafted: false
     },
     {
-      item: sauge,
+      item_id: sauge.id,
       count: 10,
       is_handcrafted: false
     }
@@ -207,12 +202,12 @@ const substrat_de_buisson: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: planche_contreplaquee,
+      item_id: planche_contreplaquee.id,
       count: 2,
       is_handcrafted: false
     },
     {
-      item: potion_de_souvenir,
+      item_id: potion_de_souvenir.id,
       count: 1,
       is_handcrafted: false
     }
@@ -234,19 +229,19 @@ const boufbottes: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: laine_de_bouftou,
+      item_id: laine_de_bouftou.id,
       count: 4,
       is_handcrafted: false
     },
 
     {
-      item: substrat_de_buisson,
+      item_id: substrat_de_buisson.id,
       count: 1,
       is_handcrafted: false
     },
 
     {
-      item: oeil_de_boufton,
+      item_id: oeil_de_boufton.id,
       count: 1,
       is_handcrafted: false
     }
@@ -268,7 +263,7 @@ const blugely: Item = {
   batchSize: 10,
   ingredients: [
     {
-      item: gelee_bleutee,
+      item_id: gelee_bleutee.id,
       count: 2,
       is_handcrafted: false
     }
@@ -290,7 +285,7 @@ const vertgely: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: gelee_menthe,
+      item_id: gelee_menthe.id,
       count: 2,
       is_handcrafted: false
     }
@@ -312,7 +307,7 @@ const rougely: Item = {
   batchSize: 10,
   ingredients: [
     {
-      item: gelee_fraise,
+      item_id: gelee_fraise.id,
       count: 2,
       is_handcrafted: false
     }
@@ -326,17 +321,17 @@ const multigely: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: blugely,
+      item_id: blugely.id,
       count: 4,
       is_handcrafted: false
     },
     {
-      item: vertgely,
+      item_id: vertgely.id,
       count: 3,
       is_handcrafted: false
     },
     {
-      item: rougely,
+      item_id: rougely.id,
       count: 2,
       is_handcrafted: false
     }
@@ -382,22 +377,22 @@ const kwakobottes_de_glace: Item = {
   batchSize: 1,
   ingredients: [
     {
-      item: bec_kwak_glace,
+      item_id: bec_kwak_glace.id,
       count: 2,
       is_handcrafted: false
     },
     {
-      item: dent_pointue,
+      item_id: dent_pointue.id,
       count: 7,
       is_handcrafted: false
     },
     {
-      item: ebonite,
+      item_id: ebonite.id,
       count: 2,
       is_handcrafted: false
     },
     {
-      item: plume_du_kwakwa,
+      item_id: plume_du_kwakwa.id,
       count: 8,
       is_handcrafted: false
     }
