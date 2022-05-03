@@ -9,21 +9,6 @@ import { Select } from '@/components/ui/Select'
 import { StepList } from '@/components/steps/list'
 
 const Home: NextPage = () => {
-  // const computeSteps = (item: Item): Step[] => {
-  //   return []
-  //   // const step = {
-  //   //   level: 1,
-  //   //   items: item.ingredients
-  //   //     .filter(ingredient => isHarvestable(ingredient.item) && ingredient.is_handcrafted)
-  //   //     .map(ingredient => ingredient.item)
-  //   // }
-    
-  //   // return [step]
-  // }
-  
-  // const initial_steps: Step[] = computeSteps(selected_item)
-  // const [steps, setSteps] = useState(initial_steps)
-  
   const dispatch = useAppDispatch()
   const items = useAppSelector(selectCraftableItems)
   const current_item = useAppSelector(selectCurrentItem)
@@ -34,12 +19,12 @@ const Home: NextPage = () => {
         <title>Archibald</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <header>
         <h1>Entrée</h1>
         <Select
-          value={current_item.id} 
-          options={items.map(item => ({ 
+          value={current_item.id}
+          options={items.map(item => ({
             key: item.id,
             value: item.id,
             label: item.label
@@ -48,8 +33,9 @@ const Home: NextPage = () => {
         />
         <ItemDetail item_id={current_item.id} />
       </header>
+
       <main>
-        {/* <StepList steps={steps.filter(step => step.items.length)} /> */}
+        <StepList item_ids={current_item.ingredients.filter(ingredient => ingredient.is_handcrafted).map(ingredient => ingredient.item_id)} level={1} />
       </main>
       <Results item={current_item}/>
     </div>

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { all_items, multigely } from '@/data/items'
+import { all_items, boufbottes, multigely } from '@/data/items'
 
 import { AppState } from '@/store'
 import { Item } from '@/models/item'
@@ -16,7 +16,7 @@ const initialItems = all_items.reduce((acc, item) => {
 
 const initialState: ItemState = {
   all: initialItems,
-  current_item_id: multigely.id
+  current_item_id: boufbottes.id
 }
 
 export const itemsSlice = createSlice({
@@ -69,5 +69,13 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
 export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(item => item.ingredients.length)
 export const selectItem = (state: AppState, item_id: string): Item | null => (state.items.all[item_id] ? { ...state.items.all[item_id] } : null)
+export const selectItems = (state: AppState, item_ids: string[]): Item[] => item_ids.reduce((acc, item_id) => {
+  const item = selectItem(state, item_id)
+  if(!item) {
+    return acc
+  }
 
-export const itemsReducer = itemsSlice.reducer  
+  return [...acc, item]
+}, new Array<Item>())
+
+export const itemsReducer = itemsSlice.reducer
