@@ -1,4 +1,3 @@
-import { Ingredient } from '@/models/ingredient'
 import { Item } from '@/models/item'
 
 const sauge: Item = {
@@ -99,7 +98,6 @@ const briochette: Item = {
     }
   ]
 }
-
 
 const brioche_viande_bouftou: Item = {
   id: 'brioche_viande_bouftou',
@@ -294,7 +292,7 @@ const vertgely: Item = {
 
 const gelee_fraise: Item = {
   id: 'gelee_fraise',
-  label: 'Gelée à la Fraise',
+  label: 'Gelée à la fraise',
   pricePerBatch: 59782,
   batchSize: 100,
   ingredients: []
@@ -400,15 +398,37 @@ const kwakobottes_de_glace: Item = {
 }
 
 const all_items: Item[] = [
-  multigely,
+  bec_kwak_glace,
   blugely,
-  vertgely,
-  rougely,
-  kwakobottes_de_glace,
-  briochette,
-  potion_de_rappel,
+  boufbottes,
   brioche_viande_bouftou,
-  boufbottes
+  briochette,
+  cendre_eternelle,
+  chataigner,
+  dent_pointue,
+  eau,
+  ebonite,
+  frene,
+  gelee_bleutee,
+  gelee_fraise,
+  gelee_menthe,
+  houblon,
+  kwakobottes_de_glace,
+  laine_de_bouftou,
+  mesure_de_poivre,
+  mesure_de_sel,
+  multigely,
+  oeil_de_boufton,
+  ortie,
+  planche_contreplaquee,
+  plume_du_kwakwa,
+  potion_de_rappel,
+  potion_de_souvenir,
+  rougely,
+  sauge,
+  substrat_de_buisson,
+  trefle_5_feuilles,
+  vertgely,
 ]
 
 export {
@@ -417,5 +437,6 @@ export {
   brioche_viande_bouftou,
   boufbottes,
   blugely,
-  briochette
+  briochette,
+  multigely
 }

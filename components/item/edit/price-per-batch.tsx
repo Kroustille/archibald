@@ -9,15 +9,15 @@ interface Props {
 
 export const ItemEditPricePerBatch = ({ item }: Props) => {
   const dispatch = useAppDispatch()
-  
+
   return <NumericInput
     value={item.pricePerBatch} 
     onChange={pricePerBatch => dispatch(
-        updateItem({
-        item: {
-          ...item,
-          pricePerBatch
-        }})
-      )
-    }/>
+      updateItem({
+      item: {
+        ...item,
+        pricePerBatch
+      }})
+    )
+  }/>
 }

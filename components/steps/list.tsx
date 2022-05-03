@@ -3,21 +3,10 @@ import { StepDetail } from '@/components/steps/detail'
 
 interface Props {
   steps: Step[]
-  onChange: (steps: Step[]) => void
 }
 
-export const StepList = ({ onChange, steps }: Props) => {
+export const StepList = ({ steps }: Props) => {
   return <>
-    {steps.map((step, step_index) => 
-      <StepDetail 
-        key={step.level} 
-        step={step} 
-        onChange={new_step => {
-          const new_steps = [...steps]
-          new_steps[step_index] = new_step
-          onChange(new_steps)
-        }}
-      />
-    )}
+    {steps.map(step => <StepDetail key={step.level} step={step} />)}
   </>
 }

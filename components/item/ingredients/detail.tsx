@@ -1,8 +1,7 @@
 import { Ingredient, computePrice } from '@/models/ingredient'
 
+import { ItemEditBatchSize } from '@/components/item/edit/batch-size'
 import { ItemEditPricePerBatch } from '@/components/item/edit/price-per-batch'
-import { POSSIBLE_BATCH_SIZES } from '@/models/item'
-import { Select } from '@/ui/Select'
 import { selectItem } from '@/store/items/slice'
 import styles from './styles.module.css'
 import { useAppSelector } from '@/hooks/store'
@@ -15,17 +14,18 @@ interface Props {
 
 export const IngredientDetail = ({ className, ingredient, onChange }: Props) => {
   const item = useAppSelector(state => selectItem(state, ingredient.item_id))
-  const checkbox_id = `ingredient-${ingredient.item_id}`;
+  const checkbox_id = `ingredient-${item}`;
+
   return <fieldset className={className}>
     <legend>{ingredient.count} X&nbsp;{item.label}</legend>
       
     <span className={styles.form}>
-      <Select value={item.batchSize} options={POSSIBLE_BATCH_SIZES} onChange={console.log}/>
+      <ItemEditBatchSize item={item} />
     
       {
         ingredient.is_handcrafted ? 
-        <span>{computePrice(ingredient)}</span>
-        : <ItemEditPricePerBatch item={item}/>
+        <span>{computePrice(ingredient)}</span> : 
+        <ItemEditPricePerBatch item={item}/>
       }
     </span>
     
@@ -39,8 +39,7 @@ export const IngredientDetail = ({ className, ingredient, onChange }: Props) => 
           onChange={() => onChange({
             ...ingredient,
             is_handcrafted: !ingredient.is_handcrafted
-          })}
-          />
+          })}/>
       </span>
     }
   </fieldset>
