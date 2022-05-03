@@ -80,6 +80,10 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
       return total_price
     }
 
+    if (ingredient.is_handpicked) {
+      return total_price
+    }
+
     if (!ingredient.is_handcrafted) {
       return total_price + (ingredient_item.pricePerBatch / ingredient_item.batchSize) * ingredient.count
     }

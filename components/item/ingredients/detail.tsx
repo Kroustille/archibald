@@ -1,8 +1,9 @@
-import { Ingredient, computePrice } from '@/models/ingredient'
 import { selectItem, selectUnitPrice } from '@/store/items/slice'
 
+import { Ingredient } from '@/models/ingredient'
 import { ItemEditBatchSize } from '@/components/item/edit/batch-size'
 import { ItemEditPricePerBatch } from '@/components/item/edit/price-per-batch'
+import { ItemIngredientsEditIsHandcrafted } from '@/components/item/ingredients/edit/is-handcrafted'
 import styles from './styles.module.css'
 import { useAppSelector } from '@/hooks/store'
 
@@ -19,14 +20,14 @@ export const ItemIngredientsDetail = ({ className, ingredient, onChange }: Props
     return null
   }
 
-  const checkbox_id = `ingredient-${item}`;
+  const checkbox_id = `ingredient-${ingredient.item_id}`;
 
   return <fieldset className={className}>
     <legend>{ingredient.count} X&nbsp;{item.label}</legend>
 
     <span className={styles.form}>
       {
-        ingredient.is_handcrafted ?
+        ingredient.is_handcrafted || ingredient.is_handpicked ?
         <span>{item_unit_price * ingredient.count}</span> : <>
           <ItemEditBatchSize item={item} />
           <ItemEditPricePerBatch item={item}/>
@@ -35,16 +36,17 @@ export const ItemIngredientsDetail = ({ className, ingredient, onChange }: Props
     </span>
 
     {
-      !!item.ingredients?.length && <span>
-        <label htmlFor={checkbox_id}>A fabriquer</label>
+      item.ingredients?.length ? <ItemIngredientsEditIsHandcrafted ingredient={ingredient} onChange={onChange}/> : <span>
+        <label htmlFor={checkbox_id}>Récolté à la main</label>
         <input
           id={checkbox_id}
-          value={`${ingredient.is_handcrafted}`}
+          value={`${ingredient.is_handpicked}`}
           type="checkbox"
           onChange={() => onChange({
             ...ingredient,
-            is_handcrafted: !ingredient.is_handcrafted
-          })}/>
+            is_handpicked: !ingredient.is_handpicked
+          })}
+        />
       </span>
     }
   </fieldset>

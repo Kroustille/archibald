@@ -24,13 +24,11 @@ const potion_de_rappel: Item = {
   ingredients: [
     {
       item_id: sauge.id,
-      count: 4,
-      is_handcrafted: false
+      count: 4
     },
     {
       item_id: eau.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     }
   ]
 }
@@ -83,18 +81,15 @@ const briochette: Item = {
   ingredients: [
     {
       item_id: trefle_5_feuilles.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     },
     {
       item_id: houblon.id,
-      count: 5,
-      is_handcrafted: false
+      count: 5
     },
     {
       item_id: cendre_eternelle.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     }
   ]
 }
@@ -107,18 +102,15 @@ const brioche_viande_bouftou: Item = {
   ingredients: [
     {
       item_id: mesure_de_sel.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     },
     {
       item_id: mesure_de_poivre.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     },
     {
       item_id: briochette.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     }
   ]
 }
@@ -147,13 +139,11 @@ const planche_contreplaquee: Item = {
   ingredients: [
     {
       item_id: frene.id,
-      count: 10,
-      is_handcrafted: false
+      count: 10
     },
     {
       item_id: chataigner.id,
-      count: 10,
-      is_handcrafted: false
+      count: 10
     }
   ]
 }
@@ -174,13 +164,11 @@ const potion_de_souvenir: Item = {
   ingredients: [
     {
       item_id: ortie.id,
-      count: 20,
-      is_handcrafted: false
+      count: 20
     },
     {
       item_id: sauge.id,
-      count: 10,
-      is_handcrafted: false
+      count: 10
     }
   ]
 }
@@ -201,13 +189,11 @@ const substrat_de_buisson: Item = {
   ingredients: [
     {
       item_id: planche_contreplaquee.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     },
     {
       item_id: potion_de_souvenir.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     }
   ]
 }
@@ -228,20 +214,17 @@ const boufbottes: Item = {
   ingredients: [
     {
       item_id: laine_de_bouftou.id,
-      count: 4,
-      is_handcrafted: false
+      count: 4
     },
 
     {
       item_id: substrat_de_buisson.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     },
 
     {
       item_id: oeil_de_boufton.id,
-      count: 1,
-      is_handcrafted: false
+      count: 1
     }
   ]
 }
@@ -262,8 +245,7 @@ const blugely: Item = {
   ingredients: [
     {
       item_id: gelee_bleutee.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     }
   ]
 }
@@ -284,8 +266,7 @@ const vertgely: Item = {
   ingredients: [
     {
       item_id: gelee_menthe.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     }
   ]
 }
@@ -306,8 +287,7 @@ const rougely: Item = {
   ingredients: [
     {
       item_id: gelee_fraise.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     }
   ]
 }
@@ -320,18 +300,15 @@ const multigely: Item = {
   ingredients: [
     {
       item_id: blugely.id,
-      count: 4,
-      is_handcrafted: false
+      count: 4
     },
     {
       item_id: vertgely.id,
-      count: 3,
-      is_handcrafted: false
+      count: 3
     },
     {
       item_id: rougely.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     }
   ]
 }
@@ -376,23 +353,19 @@ const kwakobottes_de_glace: Item = {
   ingredients: [
     {
       item_id: bec_kwak_glace.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     },
     {
       item_id: dent_pointue.id,
-      count: 7,
-      is_handcrafted: false
+      count: 7
     },
     {
       item_id: ebonite.id,
-      count: 2,
-      is_handcrafted: false
+      count: 2
     },
     {
       item_id: plume_du_kwakwa.id,
-      count: 8,
-      is_handcrafted: false
+      count: 8
     }
   ]
 }
