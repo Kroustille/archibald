@@ -12,18 +12,19 @@ interface Props {
 export const ItemEditBatchSize = ({ item }: Props) => {
   const dispatch = useAppDispatch()
 
-  return <Select 
-    value={item.batchSize} 
+  return <Select
+    value={item.batchSize}
     options={POSSIBLE_BATCH_SIZES.map(possibleBatchSize => ({
       key: possibleBatchSize,
       label: `x${possibleBatchSize}`,
       value: possibleBatchSize
-    }))} 
+    }))}
     onChange={batchSize => dispatch(
       updateItem({
       item: {
         ...item,
-        batchSize: safeParseInt(batchSize)
+        batchSize: safeParseInt(batchSize),
+        pricePerBatch: Math.floor(item.pricePerBatch / (safeParseInt(batchSize) / item.batchSize))
       }}
     ))
   }/>
