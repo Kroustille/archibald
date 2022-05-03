@@ -45,6 +45,27 @@ export const itemsSlice = createSlice({
 
 export const { updateItem, setCurrentItem } = itemsSlice.actions
 
+export const selectUnitPrice = (state: AppState, item_id: string): number => {
+  const item = state.items.all[item_id]
+  if (!item) {
+    return 0
+  }
+
+  if (!item.ingredients.length) {
+    return item.pricePerBatch / item.batchSize
+  }
+
+  return item.ingredients.reduce((total_price, ingredient) => {
+    const ingredient_item = state.items.all[ingredient.item_id]
+    if (!ingredient_item) {
+      console.warn('item not found', ingredient.item_id)
+      return total_price
+    }
+
+    return selectUnitPrice(state, ingredient_item.id)
+  }, 0)
+}
+
 export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
 export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(item => item.ingredients.length)
 export const selectItem = (state: AppState, item_id: string): Item => ({ ...state.items.all[item_id] })

@@ -1,8 +1,8 @@
 import { Ingredient, computePrice } from '@/models/ingredient'
+import { selectItem, selectUnitPrice } from '@/store/items/slice'
 
 import { ItemEditBatchSize } from '@/components/item/edit/batch-size'
 import { ItemEditPricePerBatch } from '@/components/item/edit/price-per-batch'
-import { selectItem } from '@/store/items/slice'
 import styles from './styles.module.css'
 import { useAppSelector } from '@/hooks/store'
 
@@ -14,18 +14,20 @@ interface Props {
 
 export const IngredientDetail = ({ className, ingredient, onChange }: Props) => {
   const item = useAppSelector(state => selectItem(state, ingredient.item_id))
+  const item_price = useAppSelector(state => selectUnitPrice(state, ingredient.item_id))
   const checkbox_id = `ingredient-${item}`;
 
   return <fieldset className={className}>
     <legend>{ingredient.count} X&nbsp;{item.label}</legend>
       
     <span className={styles.form}>
-      <ItemEditBatchSize item={item} />
     
       {
         ingredient.is_handcrafted ? 
-        <span>{computePrice(ingredient)}</span> : 
-        <ItemEditPricePerBatch item={item}/>
+        <span>{item_price}</span> : <>
+          <ItemEditBatchSize item={item} />
+          <ItemEditPricePerBatch item={item}/>
+        </>
       }
     </span>
 
