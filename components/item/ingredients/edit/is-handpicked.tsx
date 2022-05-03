@@ -9,10 +9,10 @@ export const ItemIngredientsEditIsHandpicked = ({ ingredient, onChange }: Props)
   const checkbox_id = `ingredient-${ingredient.item_id}-handpicked`;
 
   return <span>
-  <label htmlFor={checkbox_id}>Fait maison</label>
+  <label htmlFor={checkbox_id}>Récolté main</label>
   <input
     id={checkbox_id}
-    value={`${ingredient.is_handpicked}`}
+    checked={ingredient.is_handpicked}
     type="checkbox"
     onChange={() => onChange({
       ...ingredient,

@@ -4,6 +4,7 @@ import { Ingredient } from '@/models/ingredient'
 import { ItemEditBatchSize } from '@/components/item/edit/batch-size'
 import { ItemEditPricePerBatch } from '@/components/item/edit/price-per-batch'
 import { ItemIngredientsEditIsHandcrafted } from '@/components/item/ingredients/edit/is-handcrafted'
+import { ItemIngredientsEditIsHandpicked } from '@/components/item/ingredients/edit/is-handpicked'
 import styles from './styles.module.css'
 import { useAppSelector } from '@/hooks/store'
 
@@ -20,15 +21,13 @@ export const ItemIngredientsDetail = ({ className, ingredient, onChange }: Props
     return null
   }
 
-  const checkbox_id = `ingredient-${ingredient.item_id}`;
-
   return <fieldset className={className}>
     <legend>{ingredient.count} X&nbsp;{item.label} = {ingredient.count * (ingredient.is_handcrafted ? ingredient.count * item_unit_price : item.pricePerBatch / item.batchSize)}</legend>
 
     <span className={styles.form}>
       {
         ingredient.is_handcrafted || ingredient.is_handpicked ?
-        <span>{item_unit_price * ingredient.count}</span> : <>
+        <span>{(ingredient.is_handpicked ? 0 : item_unit_price) * ingredient.count}</span> : <>
           <ItemEditBatchSize item={item} />
           <ItemEditPricePerBatch item={item}/>
         </>
@@ -36,18 +35,7 @@ export const ItemIngredientsDetail = ({ className, ingredient, onChange }: Props
     </span>
 
     {
-      item.ingredients?.length ? <ItemIngredientsEditIsHandcrafted ingredient={ingredient} onChange={onChange}/> : <span>
-        <label htmlFor={checkbox_id}>Récolté à la main</label>
-        <input
-          id={checkbox_id}
-          value={`${ingredient.is_handpicked}`}
-          type="checkbox"
-          onChange={() => onChange({
-            ...ingredient,
-            is_handpicked: !ingredient.is_handpicked
-          })}
-        />
-      </span>
+      item.ingredients?.length ? <ItemIngredientsEditIsHandcrafted ingredient={ingredient} onChange={onChange}/> : <ItemIngredientsEditIsHandpicked ingredient={ingredient} onChange={onChange}/>
     }
   </fieldset>
 }

@@ -12,7 +12,7 @@ export const ItemIngredientsEditIsHandcrafted = ({ ingredient, onChange }: Props
   <label htmlFor={checkbox_id}>Fait maison</label>
   <input
     id={checkbox_id}
-    value={`${ingredient.is_handcrafted}`}
+    checked={ingredient.is_handcrafted}
     type="checkbox"
     onChange={() => onChange({
       ...ingredient,
