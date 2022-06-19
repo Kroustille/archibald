@@ -1,6 +1,6 @@
 import { selectItem, selectUnitPrice } from '@/store/items/slice'
 
-import { Ingredient } from '@/models/ingredient'
+import { Ingredient } from '@/domain/models/ingredient'
 import { ItemEditBatchSize } from '@/components/item/edit/batch-size'
 import { ItemEditPricePerBatch } from '@/components/item/edit/price-per-batch'
 import { ItemIngredientsEditIsHandcrafted } from '@/components/item/ingredients/edit/is-handcrafted'

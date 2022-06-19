@@ -1,4 +1,4 @@
-import { Item } from '@/models/item'
+import { Item } from '@/domain/models/item'
 import { NumericInput } from '@/components/ui/NumericInput'
 import { updateItem } from '@/store/items/slice'
 import { useAppDispatch } from '@/hooks/store'
@@ -11,7 +11,7 @@ export const ItemEditPricePerBatch = ({ item }: Props) => {
   const dispatch = useAppDispatch()
 
   return <NumericInput
-    value={item.pricePerBatch} 
+    value={item.pricePerBatch}
     onChange={pricePerBatch => dispatch(
       updateItem({
       item: {

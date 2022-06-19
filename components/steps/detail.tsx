@@ -1,5 +1,5 @@
 import { ItemDetail } from '@/components/item/detail'
-import { Step } from '@/models/step'
+import { Step } from '@/domain/models/step'
 
 interface Props {
   step: Step

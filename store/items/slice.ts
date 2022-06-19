@@ -1,4 +1,4 @@
-import { Item, isCraftable } from '@/models/item'
+import { Item, isCraftable } from '@/domain/models/item'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { all_items, ceinture_du_bandit } from '@/data/items'
 
@@ -36,7 +36,7 @@ export const itemsSlice = createSlice({
         }
       }
     },
-    setCurrentItem: (state: ItemState, { payload }: PayloadAction<{ item_id: string}>): ItemState => {
+    setCurrentItem: (state: ItemState, { payload }: PayloadAction<{ item_id: string }>): ItemState => {
       const { item_id } = payload
       return {
         ...state,
@@ -46,7 +46,7 @@ export const itemsSlice = createSlice({
     resetIsHandcrafted: (state: ItemState): ItemState => {
       const new_items = Object.values(state.all).map(item => ({
         ...item,
-        ingredients: item.ingredients.map(ingredient =>( {
+        ingredients: item.ingredients.map(ingredient => ({
           ...ingredient,
           is_handcrafted: false
         }))
@@ -89,15 +89,15 @@ export const selectUnitPrice = (state: AppState, item_id: string): number => {
     return total_price + selectUnitPrice(state, ingredient_item.id)
   }, 0)
 
-  return Math.ceil(ingredients_price * 100 ) / 100
+  return Math.ceil(ingredients_price * 100) / 100
 }
 
-export const selectCurrentItem = (state: AppState): Item =>  ({ ...state.items.all[state.items.current_item_id] })
+export const selectCurrentItem = (state: AppState): Item => ({ ...state.items.all[state.items.current_item_id] })
 export const selectCraftableItems = (state: AppState): Item[] => Object.values(state.items.all).filter(isCraftable)
 export const selectItem = (state: AppState, item_id: string): Item | null => (state.items.all[item_id] ? { ...state.items.all[item_id] } : null)
 export const selectItems = (state: AppState, item_ids: string[]): Item[] => item_ids.reduce((acc, item_id) => {
   const item = selectItem(state, item_id)
-  if(!item) {
+  if (!item) {
     return acc
   }
 

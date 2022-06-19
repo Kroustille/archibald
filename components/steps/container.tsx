@@ -1,4 +1,4 @@
-import { Item } from '@/models/item'
+import { Item } from '@/domain/models/item'
 import { StepList } from '@/components/steps/list'
 
 interface Props {

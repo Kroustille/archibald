@@ -1,4 +1,4 @@
-import { Ingredient } from '@/models/ingredient'
+import { Ingredient } from '@/domain/models/ingredient'
 
 interface Props {
   ingredient: Ingredient

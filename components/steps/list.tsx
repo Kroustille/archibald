@@ -1,4 +1,4 @@
-import { Step } from '@/models/step'
+import { Step } from '@/domain/models/step'
 import { StepDetail } from '@/components/steps/detail'
 import { selectItems } from '@/store/items/slice'
 import { useAppSelector } from '@/hooks/store'

@@ -1,4 +1,4 @@
-import { Item, POSSIBLE_BATCH_SIZES } from '@/models/item'
+import { Item, POSSIBLE_BATCH_SIZES } from '@/domain/models/item'
 
 import { Select } from '@/components/ui/Select'
 import { safeParseInt } from '@/helpers/parse'

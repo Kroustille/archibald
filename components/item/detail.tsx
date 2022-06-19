@@ -1,7 +1,7 @@
 import { selectItem, updateItem } from '@/store/items/slice'
 import { useAppDispatch, useAppSelector } from '@/hooks/store'
 
-import { Ingredient } from '@/models/ingredient'
+import { Ingredient } from '@/domain/models/ingredient'
 import { ItemIngredientsDetail } from '@/components/item/ingredients/detail'
 
 interface Props {
